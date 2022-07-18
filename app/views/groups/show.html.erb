@@ -16,6 +16,7 @@
             <td>紹介文</td>
             <td>メンバー</td>
             <td></td>
+            <td></td>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,9 @@
               <%= link_to "Join this group", group_join_path(@group), class: "btn btn-success" %>
               <% end %>
             </td>
+            <% if @group.owner_id == current_user.id %>
+            <td><%= link_to 'Notice an Event',group_new_mail_path(@group), class: "btn btn-primary" %></td>
+            <% end %>
           </tr>
         </tbody>
       </table>
